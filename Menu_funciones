@@ -1,0 +1,103 @@
+#include<stdio.h>
+#include<math.h>
+
+ 
+int elevar_numero (int numero_uno, int numero_dos); //funcion del menu 1
+int f_multiplicacion (int numero_uno, int numero_dos); //funcion del menu 2. Opcion 2.1
+int division (int r_multiplicacion, int numero_tres);//funcion del menu 2. Opcion 2.2
+int calculo_factorial (int n);//funcion del menu 3
+
+int main () {
+
+int opcion_menu;
+int primer_numero;
+int segundo_numero;
+int tercer_numero;
+int resultado;
+int multiplicacion;
+int calculo_final;
+int factorial;
+ 	
+
+printf("Menu 1: Elevar un numero y devolver resultado\n");
+printf("Menu 2: Realizar la multiplicacion de dos numeros y dividirlo por un tercero, devolviendo el resultado de la multiplicacion y el resultado final\n");
+printf("Menu 3:Calcular el factorial de un numero\n");
+
+printf("Escoge una opcion del menu:\n" );
+scanf("%d", &opcion_menu);
+
+
+switch (opcion_menu)
+{
+	case 1:
+		printf("Introduzca un numero:\n");
+		scanf("%d", &primer_numero);
+		printf("Introduzca un segundo numero:\n");
+		scanf("%d", &segundo_numero);
+		resultado=elevar_numero(primer_numero, segundo_numero);
+		printf("El resultado final es: %d\n", resultado );
+		break;
+
+	case 2:
+	printf("Introduzca el primer numero:\n");
+	scanf("%d", &primer_numero);
+	printf("Introduzca el segundo numero:\n");
+	scanf("%d", &segundo_numero);
+	multiplicacion = f_multiplicacion(primer_numero, segundo_numero);
+	printf("El resultado de la multiplicacion: %d\n",multiplicacion );
+	printf("Introduzca el tercer numero:\n");
+	scanf("%d",&tercer_numero);
+	calculo_final= division(multiplicacion, tercer_numero);
+	printf("Los resultados obtenidos son:  %d\n",calculo_final);
+	break;
+
+	case 3:
+	printf("Introduzca el numero:\n");
+	scanf("%d", &primer_numero);
+	factorial= calculo_factorial(primer_numero);
+	printf("El resultado es: %d\n",factorial );
+	break;
+
+}
+
+return 0;
+
+}
+
+
+int elevar_numero (int numero_uno, int numero_dos) //Funcion 1
+{	
+	int resultado;
+	resultado = pow	(numero_uno, numero_dos);
+	return (resultado);
+}
+
+int f_multiplicacion (int numero_uno, int numero_dos) 
+//Funcion 2.Opcion 2.1 Se realiza la multiplicacion entre dos numeros
+{
+	int resultado_multiplicacion;
+	resultado_multiplicacion =numero_uno * numero_dos;
+	return (resultado_multiplicacion);
+}
+
+int division (int r_multiplicacion, int numero_tres)
+//Funcion 2. Opcion 2.2 Realiza la division entre el resultado obtenido en la multiplicacion y un numero
+{	
+	int resultado_final;
+	resultado_final = r_multiplicacion / numero_tres;
+	return (resultado_final);
+
+}
+
+int calculo_factorial(int n) //Funcion 3	
+{
+	
+	int resultado_factorial;
+	int factorial=1;
+	if (n==0){
+		return (1);}
+	else{
+		return n * calculo_factorial (n-1);}
+	
+}
+
