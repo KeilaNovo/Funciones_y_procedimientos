@@ -92,8 +92,7 @@ int division (int r_multiplicacion, int numero_tres)
 int calculo_factorial(int n) //Funcion 3	
 {
 	
-	int resultado_factorial;
-	int factorial=1;
+	
 	if (n==0){
 		return (1);}
 	else{
